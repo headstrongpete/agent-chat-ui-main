@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Check for npm updates
-        uses: MeilCli/npm-update-check-action@v4
+        uses: MeilCli/npm-update-check-action@v5
         id: check
       
       - name: Create Issue if updates available
