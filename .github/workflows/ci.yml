@@ -23,7 +23,7 @@ jobs:
     name: Check formatting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af
@@ -40,7 +40,7 @@ jobs:
     name: Check linting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af
@@ -57,7 +57,7 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af
@@ -79,7 +79,7 @@ jobs:
     name: TypeScript type checking
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af
@@ -96,7 +96,7 @@ jobs:
     name: Check README spelling
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: codespell-project/actions-codespell@v2
         with:
           ignore_words_file: .codespellignore
@@ -106,7 +106,7 @@ jobs:
     name: Check code spelling
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: codespell-project/actions-codespell@v2
         with:
           ignore_words_file: .codespellignore
@@ -116,7 +116,7 @@ jobs:
     name: Security scanning
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [format, lint, test, type-check, security]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af
@@ -163,7 +163,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
